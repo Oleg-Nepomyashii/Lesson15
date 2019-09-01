@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+
+				
+			const sizeSmall = {
+				calories: 100,
+				price: 70,
+				weight: 125,
+			}
+
+			const sizeBig = {
+				calories: 200,
+				price: 140,
+				weight: 250,
+			}
+
+			const chikenCotlet = {
+				calories: 80,
+				price: 50,
+				weight: 80,
+			}
+
+			const beefCotlet = {
+				calories: 90,
+				price: 50,
+				weight: 80,
+			}
+
+			const cheese = {
+				calories: 30,
+				price: 10,
+				weight: 20,
+			}
+
+
+			const potato = {
+				calories: 50,
+				price: 20,
+				weight: 20,
+			}
+
+			const salat = {
+				calories: 5,
+				price: 5,
+				weight: 2,
+			}
+
+			const mayo = {
+				calories: 30,
+				price: 10,
+				weight: 5,
+			}
+
+			const ketch = {
+				calories: 25,
+				price: 10,
+				weight: 5,
+			}
+
+			class Hamburger {
+				constructor(size) {
+					this.size = size;
+					this.topping = [];
+					this.stuffing = [
+						{
+							cotlet: 'chicken',
+							calories: 80,
+							price: 50,
+							weight: 80,}
+					];
+				};
+
+				addStuffing(ingr) {
+					this.stuffing.push(ingr)
+				};
+
+				addTopping(ingr) {
+					this.topping.push(ingr)
+				};
+
+				getPrice() {
+					let price = 0;
+					price += this.size.price;
+
+					let stuffPrice = this.stuffing.reduce(function(accum,item) {
+						accum += item['price'];
+						return accum
+					},0);
+
+					let toppingPrice = this.topping.reduce(function(accum,item) {
+						accum += item['price'];
+						return accum
+					},0);
+
+					return price + stuffPrice + toppingPrice
+				};
+
+				getCalories() {
+					let totalCalories = 0;
+					totalCalories += this.size.calories;
+
+					let stuffCalories = this.stuffing.reduce(function(accum,item) {
+						accum += item['calories'];
+						return accum
+					},0);
+
+					let toppingCalories = this.topping.reduce(function(accum,item) {
+						accum += item['calories'];
+						return accum
+					},0);
+
+					return totalCalories + stuffCalories + toppingCalories
+				};
+
+				getWeight() {
+					let totalWeight = 0;
+					totalWeight += this.size.weight;
+
+					let stuffWeight = this.stuffing.reduce(function(accum,item) {
+						accum += item['weight'];
+						return accum
+					},0);
+
+					let toppingWeight = this.topping.reduce(function(accum,item) {
+						accum += item['weight'];
+						return accum
+					},0);
+
+					return totalWeight + stuffWeight + toppingWeight
+					}
+
+					
+			}
+
+
+			class Cheeseburger extends Hamburger{
+				constructor(size) {
+					super();
+					this.size = size;
+					this.topping = [];
+					this.stuffing = [
+						{
+							cotlet: 'chicken',
+							calories: 80,
+							price: 50,
+							weight: 80,
+						},
+
+						{
+							cotlet: 'cheese',
+							calories: 30,
+							price: 10,
+							weight: 20,
+
+						}
+				
+					];
+				}
+			
+			}
+
+			var hamburger = new Hamburger(sizeBig);
+			var cheeseburger = new Cheeseburger(sizeSmall);
+
+			hamburger.addStuffing(potato);
+			hamburger.addStuffing(salat);
+			hamburger.addTopping(mayo);
+			hamburger.addTopping(ketch);
+			console.log(hamburger.getPrice());
+			console.log(hamburger.getCalories());
+			console.log(hamburger.getWeight());
+
+			console.log(hamburger);
+
+
+			cheeseburger.addTopping(mayo);
+			console.log(cheeseburger.getPrice());
+			console.log(cheeseburger.getCalories());
+			console.log(cheeseburger.getWeight());
+			cheeseburger.addTopping(mayo);
+			console.log(cheeseburger.getPrice());
+			console.log(cheeseburger.getCalories());
+			console.log(cheeseburger.getWeight());
+			console.log(cheeseburger);
+
+
+		</script>
+		
+	</body>
+</html>
