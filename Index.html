@@ -7,7 +7,7 @@
 	<body>
 		<script>
 
-				
+
 			const sizeSmall = {
 				calories: 100,
 				price: 70,
@@ -88,12 +88,12 @@
 					let price = 0;
 					price += this.size.price;
 
-					let stuffPrice = this.stuffing.reduce(function(accum,item) {
+					let stuffPrice = this.stuffing.reduce((accum,item) => {
 						accum += item['price'];
 						return accum
 					},0);
 
-					let toppingPrice = this.topping.reduce(function(accum,item) {
+					let toppingPrice = this.topping.reduce((accum,item) => {
 						accum += item['price'];
 						return accum
 					},0);
@@ -105,12 +105,12 @@
 					let totalCalories = 0;
 					totalCalories += this.size.calories;
 
-					let stuffCalories = this.stuffing.reduce(function(accum,item) {
+					let stuffCalories = this.stuffing.reduce((accum,item) =>{
 						accum += item['calories'];
 						return accum
 					},0);
 
-					let toppingCalories = this.topping.reduce(function(accum,item) {
+					let toppingCalories = this.topping.reduce((accum,item) =>{
 						accum += item['calories'];
 						return accum
 					},0);
@@ -122,12 +122,12 @@
 					let totalWeight = 0;
 					totalWeight += this.size.weight;
 
-					let stuffWeight = this.stuffing.reduce(function(accum,item) {
+					let stuffWeight = this.stuffing.reduce((accum,item) => {
 						accum += item['weight'];
 						return accum
 					},0);
 
-					let toppingWeight = this.topping.reduce(function(accum,item) {
+					let toppingWeight = this.topping.reduce((accum,item) => {
 						accum += item['weight'];
 						return accum
 					},0);
